@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 13/06/2018 04:59:00 PM by Hibernate Tools 5.1.7.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="co.edu.usbcali.backend.modelo.Student" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="student">
+        <id name="idStudent" type="int">
+            <column name="id_student"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="co.edu.usbcali.backend.modelo.Avatar" embed-xml="true" fetch="select" insert="true" name="avatar" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="id_avatar"/>
+        </many-to-one>
+        <many-to-one class="co.edu.usbcali.backend.modelo.Course" embed-xml="true" fetch="select" insert="true" name="course" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="id_course"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="nameStudent" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="name_student"/>
+        </property>
+        <property generated="never" lazy="false" name="lastnameStudent" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="lastname_student"/>
+        </property>
+        <property generated="never" lazy="false" name="genderStudent" optimistic-lock="true" type="java.lang.Character" unique="false">
+            <column length="1" name="gender_student"/>
+        </property>
+        <property generated="never" lazy="false" name="nicknameStudent" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="nickname_student"/>
+        </property>
+        <property generated="never" lazy="false" name="emailStudent" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="email_student"/>
+        </property>
+        <property generated="never" lazy="false" name="passwordStudent" optimistic-lock="true" type="string" unique="false">
+            <column length="80" name="password_student"/>
+        </property>
+        <property generated="never" lazy="false" name="scoreStudent" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="score_student"/>
+        </property>
+        <property generated="never" lazy="false" name="semestreStudent" optimistic-lock="true" type="java.lang.Character" unique="false">
+            <column length="1" name="semestre_student"/>
+        </property>
+        <property generated="never" lazy="false" name="birthdateStudent" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="35" name="birthdate_student"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="courseMissionStudents" optimistic-lock="true" sort="unsorted" table="course_mission_student">
+            <key on-delete="noaction">
+                <column name="id_student"/>
+            </key>
+            <one-to-many class="co.edu.usbcali.backend.modelo.CourseMissionStudent" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="recompenseStudents" optimistic-lock="true" sort="unsorted" table="recompense_student">
+            <key on-delete="noaction">
+                <column name="id_student"/>
+            </key>
+            <one-to-many class="co.edu.usbcali.backend.modelo.RecompenseStudent" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="rolStudents" optimistic-lock="true" sort="unsorted" table="rol_student">
+            <key on-delete="noaction">
+                <column name="id_student"/>
+            </key>
+            <one-to-many class="co.edu.usbcali.backend.modelo.RolStudent" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="studentLanguages" optimistic-lock="true" sort="unsorted" table="student_language">
+            <key on-delete="noaction">
+                <column name="id_student"/>
+            </key>
+            <one-to-many class="co.edu.usbcali.backend.modelo.StudentLanguage" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="studentMissions" optimistic-lock="true" sort="unsorted" table="student_mission">
+            <key on-delete="noaction">
+                <column name="id_student"/>
+            </key>
+            <one-to-many class="co.edu.usbcali.backend.modelo.StudentMission" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="studentProgrammingLevels" optimistic-lock="true" sort="unsorted" table="student_programming_level">
+            <key on-delete="noaction">
+                <column name="id_student"/>
+            </key>
+            <one-to-many class="co.edu.usbcali.backend.modelo.StudentProgrammingLevel" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

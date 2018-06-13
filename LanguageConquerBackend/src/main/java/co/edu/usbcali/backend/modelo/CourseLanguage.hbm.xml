@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 13/06/2018 04:59:00 PM by Hibernate Tools 5.1.7.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="co.edu.usbcali.backend.modelo.CourseLanguage" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="course_language">
+        <id name="idCoruseLanguage" type="int">
+            <column name="id_coruse_language"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="co.edu.usbcali.backend.modelo.Course" embed-xml="true" fetch="select" insert="true" name="course" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="id_course"/>
+        </many-to-one>
+        <many-to-one class="co.edu.usbcali.backend.modelo.Language" embed-xml="true" fetch="select" insert="true" name="language" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="id_language"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="progressbarCourseLanguage" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="progressbar_course_language"/>
+        </property>
+        <property generated="never" lazy="false" name="imgCourseLanguage" optimistic-lock="true" type="string" unique="false">
+            <column name="img_course_language"/>
+        </property>
+    </class>
+</hibernate-mapping>

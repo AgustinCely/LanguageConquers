@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 13/06/2018 04:59:00 PM by Hibernate Tools 5.1.7.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="co.edu.usbcali.backend.modelo.StudentProgrammingLevel" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="student_programming_level">
+        <id name="idStudentProgrammingLevel" type="int">
+            <column name="id_student_programming_level"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="co.edu.usbcali.backend.modelo.ProgrammingLevel" embed-xml="true" fetch="select" insert="true" name="programmingLevel" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="id_programming_level"/>
+        </many-to-one>
+        <many-to-one class="co.edu.usbcali.backend.modelo.Student" embed-xml="true" fetch="select" insert="true" name="student" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="id_student"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

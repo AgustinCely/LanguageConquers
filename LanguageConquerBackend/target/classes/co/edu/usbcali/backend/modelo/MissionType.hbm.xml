@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 13/06/2018 04:59:00 PM by Hibernate Tools 5.1.7.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="co.edu.usbcali.backend.modelo.MissionType" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="mission_type">
+        <id name="idMissionType" type="int">
+            <column name="id_mission_type"/>
+            <generator class="assigned"/>
+        </id>
+        <property generated="never" lazy="false" name="descriptionMissionType" optimistic-lock="true" type="string" unique="false">
+            <column name="description_mission_type"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="missions" optimistic-lock="true" sort="unsorted" table="mission">
+            <key on-delete="noaction">
+                <column name="id_mission_type"/>
+            </key>
+            <one-to-many class="co.edu.usbcali.backend.modelo.Mission" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

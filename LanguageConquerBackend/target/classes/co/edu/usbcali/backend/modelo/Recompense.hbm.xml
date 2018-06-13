@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 13/06/2018 04:59:00 PM by Hibernate Tools 5.1.7.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="co.edu.usbcali.backend.modelo.Recompense" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="recompense">
+        <id name="idRecompense" type="int">
+            <column name="id_recompense"/>
+            <generator class="assigned"/>
+        </id>
+        <property generated="never" lazy="false" name="titleRecompense" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="title_recompense"/>
+        </property>
+        <property generated="never" lazy="false" name="imgRecompense" optimistic-lock="true" type="string" unique="false">
+            <column length="200" name="img_recompense"/>
+        </property>
+        <property generated="never" lazy="false" name="scoreMin" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="score_min"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="recompenseStudents" optimistic-lock="true" sort="unsorted" table="recompense_student">
+            <key on-delete="noaction">
+                <column name="id_recompense"/>
+            </key>
+            <one-to-many class="co.edu.usbcali.backend.modelo.RecompenseStudent" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="missions" optimistic-lock="true" sort="unsorted" table="mission">
+            <key on-delete="noaction">
+                <column name="id_recompense"/>
+            </key>
+            <one-to-many class="co.edu.usbcali.backend.modelo.Mission" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 13/06/2018 04:59:00 PM by Hibernate Tools 5.1.7.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="co.edu.usbcali.backend.modelo.Mission" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="mission">
+        <id name="idMission" type="int">
+            <column name="id_mission"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="co.edu.usbcali.backend.modelo.MissionLevel" embed-xml="true" fetch="select" insert="true" name="missionLevel" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="id_mission_level"/>
+        </many-to-one>
+        <many-to-one class="co.edu.usbcali.backend.modelo.MissionType" embed-xml="true" fetch="select" insert="true" name="missionType" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="id_mission_type"/>
+        </many-to-one>
+        <many-to-one class="co.edu.usbcali.backend.modelo.Recompense" embed-xml="true" fetch="select" insert="true" name="recompense" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="id_recompense"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="titleMission" optimistic-lock="true" type="string" unique="false">
+            <column length="80" name="title_mission"/>
+        </property>
+        <property generated="never" lazy="false" name="descriptionMission" optimistic-lock="true" type="string" unique="false">
+            <column name="description_mission"/>
+        </property>
+        <property generated="never" lazy="false" name="scoreMission" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="score_mission"/>
+        </property>
+        <property generated="never" lazy="false" name="dateLimit" optimistic-lock="true" type="time" unique="false">
+            <column length="15" name="date_limit"/>
+        </property>
+        <property generated="never" lazy="false" name="stateMission" optimistic-lock="true" type="java.lang.Character" unique="false">
+            <column length="1" name="state_mission"/>
+        </property>
+        <property generated="never" lazy="false" name="sendMission" optimistic-lock="true" type="java.lang.Character" unique="false">
+            <column length="1" name="send_mission"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="courseMissions" optimistic-lock="true" sort="unsorted" table="course_mission">
+            <key on-delete="noaction">
+                <column name="id_mission"/>
+            </key>
+            <one-to-many class="co.edu.usbcali.backend.modelo.CourseMission" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="courseMissionRolStudents" optimistic-lock="true" sort="unsorted" table="course_mission_rol_student">
+            <key on-delete="noaction">
+                <column name="id_mission"/>
+            </key>
+            <one-to-many class="co.edu.usbcali.backend.modelo.CourseMissionRolStudent" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="studentMissions" optimistic-lock="true" sort="unsorted" table="student_mission">
+            <key on-delete="noaction">
+                <column name="id_mission"/>
+            </key>
+            <one-to-many class="co.edu.usbcali.backend.modelo.StudentMission" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

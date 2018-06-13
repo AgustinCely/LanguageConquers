@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 13/06/2018 04:59:00 PM by Hibernate Tools 5.1.7.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="co.edu.usbcali.backend.modelo.Rol" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="rol">
+        <id name="idRol" type="int">
+            <column name="id_rol"/>
+            <generator class="assigned"/>
+        </id>
+        <property generated="never" lazy="false" name="nameRol" optimistic-lock="true" type="string" unique="false">
+            <column length="30" name="name_rol"/>
+        </property>
+        <property generated="never" lazy="false" name="imgRol" optimistic-lock="true" type="string" unique="false">
+            <column name="img_rol"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="courseMissionRols" optimistic-lock="true" sort="unsorted" table="course_mission_rol">
+            <key on-delete="noaction">
+                <column name="id_rol"/>
+            </key>
+            <one-to-many class="co.edu.usbcali.backend.modelo.CourseMissionRol" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="rolStudents" optimistic-lock="true" sort="unsorted" table="rol_student">
+            <key on-delete="noaction">
+                <column name="id_rol"/>
+            </key>
+            <one-to-many class="co.edu.usbcali.backend.modelo.RolStudent" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>
