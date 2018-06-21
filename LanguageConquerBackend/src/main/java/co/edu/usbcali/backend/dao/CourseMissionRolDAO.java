@@ -38,7 +38,11 @@ public class CourseMissionRolDAO implements ICourseMissionRolDAO{
 
 	@Override
 	public List<CourseMissionRol> consultarTodosLosCourseMissionRol() {
-		String sql="SELECT cmr FROM CourseMissionRol cmr";
+		String sql="SELECT cmr FROM CourseMissionRol cmr, Rol r, CourseMission cm, Mission m, Course c WHERE"
+				+"cmr.courseMission.idCourseMission = cm.idCourseMission AND " 
+				+"cmr.rol.idRol = r.idRol AND " 
+				+"cm.course.idCourse = c.idCourse AND "
+				+"cm.mission.idMission = m.idMission";
 		return sessionFactory.getCurrentSession().createQuery(sql).getResultList();
 	}
 
