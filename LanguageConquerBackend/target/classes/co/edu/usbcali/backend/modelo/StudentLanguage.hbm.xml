@@ -4,7 +4,7 @@
     <class dynamic-insert="false" dynamic-update="false" mutable="true" name="co.edu.usbcali.backend.modelo.StudentLanguage" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="student_language">
         <id name="idStudentLanguage" type="int">
             <column name="id_student_language"/>
-            <generator class="assigned"/>
+            <generator class="identity"/>
         </id>
         <many-to-one class="co.edu.usbcali.backend.modelo.Language" embed-xml="true" fetch="select" insert="true" name="language" not-found="exception" optimistic-lock="true" unique="false" update="true">
             <column name="id_language"/>

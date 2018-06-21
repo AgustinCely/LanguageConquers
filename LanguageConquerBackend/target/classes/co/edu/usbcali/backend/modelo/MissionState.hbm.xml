@@ -4,7 +4,7 @@
     <class dynamic-insert="false" dynamic-update="false" mutable="true" name="co.edu.usbcali.backend.modelo.MissionState" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="mission_state">
         <id name="idMissionState" type="int">
             <column name="id_mission_state"/>
-            <generator class="assigned"/>
+            <generator class="identity"/>
         </id>
         <property generated="never" lazy="false" name="nameMissionState" optimistic-lock="true" type="string" unique="false">
             <column length="30" name="name_mission_state"/>

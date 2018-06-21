@@ -4,7 +4,7 @@
     <class dynamic-insert="false" dynamic-update="false" mutable="true" name="co.edu.usbcali.backend.modelo.Avatar" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="avatar">
         <id name="idAvatar" type="int">
             <column name="id_avatar"/>
-            <generator class="assigned"/>
+            <generator class="identity"/>
         </id>
         <property generated="never" lazy="false" name="nameAvatar" optimistic-lock="true" type="string" unique="false">
             <column length="30" name="name_avatar"/>

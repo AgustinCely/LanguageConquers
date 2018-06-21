@@ -4,7 +4,7 @@
     <class dynamic-insert="false" dynamic-update="false" mutable="true" name="co.edu.usbcali.backend.modelo.CourseMissionRolStudent" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="course_mission_rol_student">
         <id name="idCouseMissionRolStudent" type="int">
             <column name="id_couse_mission_rol_student"/>
-            <generator class="assigned"/>
+            <generator class="identity"/>
         </id>
         <many-to-one class="co.edu.usbcali.backend.modelo.Mission" embed-xml="true" fetch="select" insert="true" name="mission" not-found="exception" optimistic-lock="true" unique="false" update="true">
             <column name="id_mission"/>
